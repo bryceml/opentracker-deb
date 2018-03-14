@@ -2,7 +2,7 @@ Source: opentracker
 Section: net
 Priority: optional
 Maintainer: Bryce Larson <brycelarsn@gmail.com>
-Build-Depends: debhelper (>= 9), zlib1g-dev, make, c-compiler
+Build-Depends: debhelper (>= 9.20160709~), zlib1g-dev, make (>= 4.1), c-compiler
 Standards-Version: 4.1.1
 Homepage: https://erdgeist.org/arts/software/opentracker/
 Vcs-Git: git://erdgeist.org/opentracker

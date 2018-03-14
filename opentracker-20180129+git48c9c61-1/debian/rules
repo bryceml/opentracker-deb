@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 # See debhelper(7) (uncomment to enable)
 # output every command that modifies files on the build system.
-#export DH_VERBOSE = 1
+export DH_VERBOSE = 1
 
 
 # see FEATURE AREAS in dpkg-buildflags(1)
@@ -15,7 +15,7 @@
 
 
 %:
-	dh $@
+	dh $@ --with=systemd
 
 override_dh_auto_clean:
 	$(MAKE) -C libowfat clean
@@ -37,7 +37,6 @@ override_dh_auto_install:
 	install -m 644 opentracker/opentracker.conf.sample debian/opentracker/etc/opentracker/opentracker-ipv6.conf
 	install -m 644 debian/opentracker.service debian/opentracker/lib/systemd/system/opentracker.service
 	install -m 644 debian/opentracker-ipv6.service debian/opentracker/lib/systemd/system/opentracker-ipv6.service
-
 
 # dh_make generated override targets
 # This is example for Cmake (See https://bugs.debian.org/641051 )

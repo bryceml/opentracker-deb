@@ -19,14 +19,10 @@ set -e
 
 
 case "$1" in
-    configure|abort-upgrade|abort-remove|abort-deconfigure)
-	if [ -d /run/systemd/system ] ; then
-		systemctl --system daemon-reload >/dev/null || true
-		systemctl enable opentracker.service >/dev/null || true
-		systemctl enable opentracker-ipv6.service >/dev/null || true
-		systemctl start opentracker.service >/dev/null || true
-		systemctl start opentracker-ipv6.service >/dev/null || true
-	fi
+    configure)
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
     ;;
 
     *)

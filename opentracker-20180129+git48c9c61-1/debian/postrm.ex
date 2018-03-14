@@ -20,14 +20,7 @@ set -e
 
 
 case "$1" in
-    remove|failed-upgrade|abort-install|abort-upgrade|disappear)
-    ;;
-
-    purge)
-        rm -rf /etc/opentracker
-    ;;
-
-    upgrade)
+    purge|remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
     ;;
 
     *)

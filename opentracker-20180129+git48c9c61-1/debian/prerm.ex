@@ -18,16 +18,7 @@ set -e
 
 
 case "$1" in
-    remove)
-	if [ -d /run/systemd/system ] ; then
-		systemctl stop opentracker.service >/dev/null || true
-		systemctl stop opentracker-ipv6.service >/dev/null || true
-		systemctl disable opentracker.service >/dev/null || true
-		systemctl disable opentracker-ipv6.service >/dev/null || true
-	fi
-    ;;
-
-    upgrade|deconfigure)
+    remove|upgrade|deconfigure)
     ;;
 
     failed-upgrade)
