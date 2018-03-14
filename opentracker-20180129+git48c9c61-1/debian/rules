@@ -17,14 +17,6 @@
 %:
 	dh $@
 
-override_dh_auto_clean:
-	$(MAKE) clean -C libowfat
-	$(MAKE) clean -C opentracker
-
-override_dh_auto_build:
-	$(MAKE) -C libowfat
-	$(MAKE) -C opentracker
-	cp opentracker/opentracker.conf.sample opentracker/opentracker.conf
 
 # dh_make generated override targets
 # This is example for Cmake (See https://bugs.debian.org/641051 )
