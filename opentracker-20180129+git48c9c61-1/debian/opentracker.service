@@ -3,7 +3,7 @@ Description=Opentracker service
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/opentracker -f /etc/opentracker/opentracker.conf -u nobody
+ExecStart=/usr/bin/opentracker -f /etc/opentracker/opentracker.conf
 Type=simple
 Restart=on-failure
 

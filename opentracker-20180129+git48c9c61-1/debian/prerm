@@ -21,6 +21,7 @@ case "$1" in
     remove)
 	if [ -d /run/systemd/system ] ; then
 		systemctl stop opentracker.service >/dev/null || true
+		systemctl disable opentracker.service >/dev/null || true
 	fi
     ;;
 
