@@ -1,0 +1,11 @@
+Package: opentracker
+Version: 1-git+20180129.48c9c61-1
+Architecture: amd64
+Maintainer: Bryce Larson <brycelarsn@gmail.com>
+Installed-Size: 100
+Depends: libc6 (>= 2.14), zlib1g (>= 1:1.1.4)
+Section: unknown
+Priority: optional
+Homepage: https://erdgeist.org/arts/software/opentracker/
+Description: opentracker
+ opentracker
