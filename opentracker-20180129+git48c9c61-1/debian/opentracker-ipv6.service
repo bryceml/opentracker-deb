@@ -1,0 +1,11 @@
+[Unit]
+Description=Opentracker ipv6 service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/opentracker-ipv6 -f /etc/opentracker/opentracker-ipv6.conf
+Type=simple
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

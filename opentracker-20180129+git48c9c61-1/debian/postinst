@@ -23,7 +23,9 @@ case "$1" in
 	if [ -d /run/systemd/system ] ; then
 		systemctl --system daemon-reload >/dev/null || true
 		systemctl enable opentracker.service >/dev/null || true
+		systemctl enable opentracker-ipv6.service >/dev/null || true
 		systemctl start opentracker.service >/dev/null || true
+		systemctl start opentracker-ipv6.service >/dev/null || true
 	fi
     ;;
 

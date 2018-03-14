@@ -18,17 +18,25 @@
 	dh $@
 
 override_dh_auto_clean:
-	$(MAKE) clean -C libowfat
-	rm libowfat/libowfat/*.h
-	$(MAKE) clean -C opentracker
+	$(MAKE) -C libowfat clean
+	rm libowfat/libowfat/*.h || true
+	$(MAKE) -C opentracker clean
+	rm opentracker/opentracker-ipv6 || true
 
 override_dh_auto_build:
 	$(MAKE) -C libowfat
+	sed -i 's/#FEATURES+=-DWANT_V6/FEATURES+=-DWANT_V6/' opentracker/Makefile
+	$(MAKE) -C opentracker
+	mv opentracker/opentracker opentracker/opentracker-ipv6
+	sed -i 's/FEATURES+=-DWANT_V6/#FEATURES+=-DWANT_V6/' opentracker/Makefile
+	$(MAKE) -C opentracker clean
 	$(MAKE) -C opentracker
 
 override_dh_auto_install:
 	install -m 644 opentracker/opentracker.conf.sample debian/opentracker/etc/opentracker/opentracker.conf
+	install -m 644 opentracker/opentracker.conf.sample debian/opentracker/etc/opentracker/opentracker-ipv6.conf
 	install -m 644 debian/opentracker.service debian/opentracker/lib/systemd/system/opentracker.service
+	install -m 644 debian/opentracker-ipv6.service debian/opentracker/lib/systemd/system/opentracker-ipv6.service
 
 
 # dh_make generated override targets
