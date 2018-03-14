@@ -18,7 +18,13 @@ set -e
 
 
 case "$1" in
-    remove|upgrade|deconfigure)
+    remove)
+	if [ -d /run/systemd/system ] ; then
+		systemctl stop opentracker.service >/dev/null || true
+	fi
+    ;;
+
+    upgrade|deconfigure)
     ;;
 
     failed-upgrade)

@@ -1,6 +1,6 @@
 Source: opentracker
 Section: net
-Priority: extra
+Priority: optional
 Maintainer: Bryce Larson <brycelarsn@gmail.com>
 Build-Depends: debhelper (>= 9), zlib1g-dev, make, c-compiler
 Standards-Version: 4.1.1
